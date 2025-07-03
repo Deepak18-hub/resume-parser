@@ -1,0 +1,56 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  
+    <title>Resume Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #eef2f7;
+            padding: 40px;
+            font-family: Arial, sans-serif;
+        }
+        .results-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Parsed Resume Information</h2>
+
+    {% if resumes %}
+        {% for r in resumes %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <strong>{{ r.Filename }}</strong>
+                {% if r.Error %}
+                    <span class="text-danger"> - Error: {{ r.Error }}</span>
+                {% endif %}
+            </div>
+    <div class="card-body">
+                <p><strong>Name:</strong> {{ r.Name }}</p>
+                <p><strong>Email:</strong> {{ r.Email }}</p>
+                <p><strong>Phone:</strong> {{ r.Phone }}</p>
+                <p><strong>Location:</strong> {{ r.Location }}</p>
+                <p><strong>Skills:</strong> {{ r.Skills }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning mt-4">⚠️ No result to display. Please upload a valid resume.</div>
+    {% endif %}
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary">⬅ Back to Upload</a>
+    </div>
+</div>
+
+</body>
+</html>
