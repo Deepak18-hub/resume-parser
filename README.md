@@ -1,4 +1,4 @@
-# 🧠 Resume Parser Web App
+# 🧠 Resume Parser using python
 
 This is a simple web application built with Python and Flask that allows users to upload their resumes in PDF format. The app extracts and displays key information such as **Name**, **Contact**, **Location**, and **Skills** using natural language processing and regular expressions.
 
